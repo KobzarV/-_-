@@ -16,9 +16,9 @@ struct Date
 	friend ostream& operator<<(ostream& os, const Date& date);
 };
 
-bool isLeap(int year);    // ôóíêöèÿ äëÿ îïðåäåëåíèÿ, âèñîêîñíûì ëè ÿâëÿåòñÿ ãîä
-int GetDaysInYear(int year);  //ôóíê³ÿ äëÿ çíàõîäæåííÿ ê³ëüêîñò³ äí³â ó ðîö³
-int diff_between_dates(Date begin_date, Date end_date); // ôóíêöèÿ, îïðåäåëÿþùàÿ êîëè÷åñòâî äíåé ìåæäó 2-ìÿ äàòàìè äàòàìè
+bool isLeap(int year);    // Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð´Ð»Ñ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ñ, Ð²Ð¸ÑÐ¾ÐºÐ¾ÑÐ½Ñ‹Ð¼ Ð»Ð¸ ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð³Ð¾Ð´
+int GetDaysInYear(int year);  //Ñ„ÑƒÐ½ÐºÑ–Ñ Ð´Ð»Ñ Ð·Ð½Ð°Ñ…Ð¾Ð´Ð¶ÐµÐ½Ð½Ñ ÐºÑ–Ð»ÑŒÐºÐ¾ÑÑ‚Ñ– Ð´Ð½Ñ–Ð² Ñƒ Ñ€Ð¾Ñ†Ñ–
+int diff_between_dates(Date begin_date, Date end_date); // Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ, Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÑŽÑ‰Ð°Ñ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð´Ð½ÐµÐ¹ Ð¼ÐµÐ¶Ð´Ñƒ 2-Ð¼Ñ Ð´Ð°Ñ‚Ð°Ð¼Ð¸ Ð´Ð°Ñ‚Ð°Ð¼Ð¸
 struct Time
 {
 	unsigned hours;
