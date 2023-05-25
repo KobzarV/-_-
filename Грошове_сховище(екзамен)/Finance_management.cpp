@@ -9,35 +9,35 @@
 using namespace std;
 
 FinanceManagement::FinanceManagement() {}
-void FinanceManagement::AddStorage(MoneyStorage* ptr) //додати сховище
+void FinanceManagement::AddStorage(MoneyStorage* ptr) //РґРѕРґР°С‚Рё СЃС…РѕРІРёС‰Рµ
 {
 	storages.insert(ptr);
 }
-void FinanceManagement::DeleteStorage(long long number)  // видалити сховище
+void FinanceManagement::DeleteStorage(long long number)  // РІРёРґР°Р»РёС‚Рё СЃС…РѕРІРёС‰Рµ
 {
 	for (auto st : storages)
 	{
 		if (st->GetNumber() == number)
 		{
 			storages.erase(st);
-			delete st; // Видалення об'єкту рахунку з пам'яті
-			cout << "Грошове сховище із номером  " << number << " було видалено." << endl;
+			delete st; // Р’РёРґР°Р»РµРЅРЅСЏ РѕР±'С”РєС‚Сѓ СЂР°С…СѓРЅРєСѓ Р· РїР°Рј'СЏС‚С–
+			cout << "Р“СЂРѕС€РѕРІРµ СЃС…РѕРІРёС‰Рµ С–Р· РЅРѕРјРµСЂРѕРј  " << number << " Р±СѓР»Рѕ РІРёРґР°Р»РµРЅРѕ." << endl;
 			return;
 		}
 	}
-	cout << "Грошове сховище за номером " << number << " не знайдено." << endl;
+	cout << "Р“СЂРѕС€РѕРІРµ СЃС…РѕРІРёС‰Рµ Р·Р° РЅРѕРјРµСЂРѕРј " << number << " РЅРµ Р·РЅР°Р№РґРµРЅРѕ." << endl;
 }
-void FinanceManagement::Info() //вивід даних
+void FinanceManagement::Info() //РІРёРІС–Рґ РґР°РЅРёС…
 {
 	for (const auto& store : storages)
 	{
 		store->Info();
 	}
 }
-void FinanceManagement::TopUpStorage()   //поповнити сховище
+void FinanceManagement::TopUpStorage()   //РїРѕРїРѕРІРЅРёС‚Рё СЃС…РѕРІРёС‰Рµ
 {
 	long long number;
-	cout << "Введіть номер карти/гаманця для поповнення" << endl;
+	cout << "Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ РєР°СЂС‚Рё/РіР°РјР°РЅС†СЏ РґР»СЏ РїРѕРїРѕРІРЅРµРЅРЅСЏ" << endl;
 	cin >> number;
 	for (auto& it : storages)
 	{
@@ -47,12 +47,12 @@ void FinanceManagement::TopUpStorage()   //поповнити сховище
 			return;
 		}
 	}
-	cout << "Карти/Гаманця з таким номером(" << number << ") не знайдено." << endl;
+	cout << "РљР°СЂС‚Рё/Р“Р°РјР°РЅС†СЏ Р· С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј(" << number << ") РЅРµ Р·РЅР°Р№РґРµРЅРѕ." << endl;
 }
-void FinanceManagement::AddSpendingToStorage() // додати витрату до сховища
+void FinanceManagement::AddSpendingToStorage() // РґРѕРґР°С‚Рё РІРёС‚СЂР°С‚Сѓ РґРѕ СЃС…РѕРІРёС‰Р°
 {
 	long long number;
-	cout << "Введіть номер карти/гаманця для додавання витрати" << endl;
+	cout << "Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ РєР°СЂС‚Рё/РіР°РјР°РЅС†СЏ РґР»СЏ РґРѕРґР°РІР°РЅРЅСЏ РІРёС‚СЂР°С‚Рё" << endl;
 	cin >> number;
 	for (auto& storage : storages)
 	{
@@ -62,27 +62,27 @@ void FinanceManagement::AddSpendingToStorage() // додати витрату до сховища
 			return;
 		}
 	}
-	cout << "Карти/Гаманця з таким номером(" << number << ") не знайдено." << endl;
+	cout << "РљР°СЂС‚Рё/Р“Р°РјР°РЅС†СЏ Р· С‚Р°РєРёРј РЅРѕРјРµСЂРѕРј(" << number << ") РЅРµ Р·РЅР°Р№РґРµРЅРѕ." << endl;
 
 }
-void FinanceManagement::Menu()    // меню
+void FinanceManagement::Menu()    // РјРµРЅСЋ
 {
 	unsigned choise;
 	do
 	{
 		system("pause");
 		system("cls");
-		cout << "\n\tМеню\n";
-		cout << "1 - Поповнити карту/гаманець\n";
-		cout << "2 - Здійснити оплату картою/гаманцем\n";
-		cout << "3 - Вивести всі карти і гаманці на екран\n";
-		cout << "4 - Показати звіт по витратам за день\n";  // із записом у файл
-		cout << "5 - Показати звіт по витратам за тиждень\n";  // із записом у файл
-		cout << "6 - Показати звіт по витратам за місяць\n";  // із записом у файл
-		cout << "7 - Рейтинг витрат за тиждень\n";  //  ТОП-3 витрати за тиждень із записом у файл
-		cout << "8 - Рейтинг витрат за місяць\n";  // ТОП-3 витрати за місяць із записом у файл
-		cout << "9 - Рейтинг категорій за тиждень\n";  // ТОП-3 категорії за тиждень із записом у файл
-		cout << "10 - Рейтинг категорій за місяць\n"; // ТОП-3 категорії за місяць із записом у файл
+		cout << "\n\tРњРµРЅСЋ\n";
+		cout << "1 - РџРѕРїРѕРІРЅРёС‚Рё РєР°СЂС‚Сѓ/РіР°РјР°РЅРµС†СЊ\n";
+		cout << "2 - Р—РґС–Р№СЃРЅРёС‚Рё РѕРїР»Р°С‚Сѓ РєР°СЂС‚РѕСЋ/РіР°РјР°РЅС†РµРј\n";
+		cout << "3 - Р’РёРІРµСЃС‚Рё РІСЃС– РєР°СЂС‚Рё С– РіР°РјР°РЅС†С– РЅР° РµРєСЂР°РЅ\n";
+		cout << "4 - РџРѕРєР°Р·Р°С‚Рё Р·РІС–С‚ РїРѕ РІРёС‚СЂР°С‚Р°Рј Р·Р° РґРµРЅСЊ\n";  // С–Р· Р·Р°РїРёСЃРѕРј Сѓ С„Р°Р№Р»
+		cout << "5 - РџРѕРєР°Р·Р°С‚Рё Р·РІС–С‚ РїРѕ РІРёС‚СЂР°С‚Р°Рј Р·Р° С‚РёР¶РґРµРЅСЊ\n";  // С–Р· Р·Р°РїРёСЃРѕРј Сѓ С„Р°Р№Р»
+		cout << "6 - РџРѕРєР°Р·Р°С‚Рё Р·РІС–С‚ РїРѕ РІРёС‚СЂР°С‚Р°Рј Р·Р° РјС–СЃСЏС†СЊ\n";  // С–Р· Р·Р°РїРёСЃРѕРј Сѓ С„Р°Р№Р»
+		cout << "7 - Р РµР№С‚РёРЅРі РІРёС‚СЂР°С‚ Р·Р° С‚РёР¶РґРµРЅСЊ\n";  //  РўРћРџ-3 РІРёС‚СЂР°С‚Рё Р·Р° С‚РёР¶РґРµРЅСЊ С–Р· Р·Р°РїРёСЃРѕРј Сѓ С„Р°Р№Р»
+		cout << "8 - Р РµР№С‚РёРЅРі РІРёС‚СЂР°С‚ Р·Р° РјС–СЃСЏС†СЊ\n";  // РўРћРџ-3 РІРёС‚СЂР°С‚Рё Р·Р° РјС–СЃСЏС†СЊ С–Р· Р·Р°РїРёСЃРѕРј Сѓ С„Р°Р№Р»
+		cout << "9 - Р РµР№С‚РёРЅРі РєР°С‚РµРіРѕСЂС–Р№ Р·Р° С‚РёР¶РґРµРЅСЊ\n";  // РўРћРџ-3 РєР°С‚РµРіРѕСЂС–С— Р·Р° С‚РёР¶РґРµРЅСЊ С–Р· Р·Р°РїРёСЃРѕРј Сѓ С„Р°Р№Р»
+		cout << "10 - Р РµР№С‚РёРЅРі РєР°С‚РµРіРѕСЂС–Р№ Р·Р° РјС–СЃСЏС†СЊ\n"; // РўРћРџ-3 РєР°С‚РµРіРѕСЂС–С— Р·Р° РјС–СЃСЏС†СЊ С–Р· Р·Р°РїРёСЃРѕРј Сѓ С„Р°Р№Р»
 		cout << "11 - Exit\n";
 		cin >> choise;
 		switch (choise)
@@ -121,20 +121,20 @@ void FinanceManagement::Menu()    // меню
 			cout << "Bye!\n";
 			break;
 		default:
-			cout << "Такого пункту меню немає!\n";
+			cout << "РўР°РєРѕРіРѕ РїСѓРЅРєС‚Сѓ РјРµРЅСЋ РЅРµРјР°С”!\n";
 		}
 	} while (choise != 11);
 }
-//звіти
-void FinanceManagement::DayReport()   // за день
+//Р·РІС–С‚Рё
+void FinanceManagement::DayReport()   // Р·Р° РґРµРЅСЊ
 {
 	ofstream file_report_day("day_report.txt");
 	if (!file_report_day)
 	{
-		cout << "Помилка відкриття файлу для звіту." << endl;
+		cout << "РџРѕРјРёР»РєР° РІС–РґРєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ РґР»СЏ Р·РІС–С‚Сѓ." << endl;
 		return;
 	}
-	cout << "Введіть дату, за яку хочите отримати звіт" << endl;
+	cout << "Р’РІРµРґС–С‚СЊ РґР°С‚Сѓ, Р·Р° СЏРєСѓ С…РѕС‡РёС‚Рµ РѕС‚СЂРёРјР°С‚Рё Р·РІС–С‚" << endl;
 	Date dat;
 	dat.Input();
 	system("cls");
@@ -145,33 +145,33 @@ void FinanceManagement::DayReport()   // за день
 			Date temp = spend.GetDate();
 			if (temp.day == dat.day)
 			{
-				cout << "\tЗвіт за день: " << spend.GetDate()
-					<< "\nСховище: " << storage->GetNumber();
+				cout << "\tР—РІС–С‚ Р·Р° РґРµРЅСЊ: " << spend.GetDate()
+					<< "\nРЎС…РѕРІРёС‰Рµ: " << storage->GetNumber();
 				spend.Info();
-				file_report_day << "\tЗвіт за день: " << spend.GetDate()
-					<< "\nСховище: " << storage->GetNumber() << "\nСума витрати: " << spend.GetMoney()
-					<< "\nКатегорія: " << spend.GetCategory() << "(" << categoryes[spend.GetCategory()-1] << ")"
-					<< "\nЧас: " << spend.GetTime() << endl;
+				file_report_day << "\tР—РІС–С‚ Р·Р° РґРµРЅСЊ: " << spend.GetDate()
+					<< "\nРЎС…РѕРІРёС‰Рµ: " << storage->GetNumber() << "\nРЎСѓРјР° РІРёС‚СЂР°С‚Рё: " << spend.GetMoney()
+					<< "\nРљР°С‚РµРіРѕСЂС–СЏ: " << spend.GetCategory() << "(" << categoryes[spend.GetCategory()-1] << ")"
+					<< "\nР§Р°СЃ: " << spend.GetTime() << endl;
 			}
 		}
 	}
 	file_report_day.close();
 }
-void FinanceManagement::WeekReport()     // за тиждень
+void FinanceManagement::WeekReport()     // Р·Р° С‚РёР¶РґРµРЅСЊ
 {
 	float totalSpends = 0.0;
 	ofstream file_report_week("week_report.txt");
 	if (!file_report_week)
 	{
-		cout << "Помилка відкриття файлу для звіту" << endl;
+		cout << "РџРѕРјРёР»РєР° РІС–РґРєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ РґР»СЏ Р·РІС–С‚Сѓ" << endl;
 		return;
 	}
 	Date dat;
-	cout << "Введіть дату для формування тижневого звіту" << endl;
+	cout << "Р’РІРµРґС–С‚СЊ РґР°С‚Сѓ РґР»СЏ С„РѕСЂРјСѓРІР°РЅРЅСЏ С‚РёР¶РЅРµРІРѕРіРѕ Р·РІС–С‚Сѓ" << endl;
 	dat.Input();
 	system("cls");
-	cout << "\tЗвіт за тиждень: ";
-	file_report_week << "\tЗвіт за тиждень: \n";
+	cout << "\tР—РІС–С‚ Р·Р° С‚РёР¶РґРµРЅСЊ: ";
+	file_report_week << "\tР—РІС–С‚ Р·Р° С‚РёР¶РґРµРЅСЊ: \n";
 	for (auto& storage : storages)
 	{
 		for (auto& spends : storage->GetSpendings())
@@ -181,40 +181,40 @@ void FinanceManagement::WeekReport()     // за тиждень
 				cout << storage->GetNumber() << endl;
 				spends.Info();
 				totalSpends += spends.GetMoney();
-				file_report_week << spends.GetDate() << "\nСховище: " << storage->GetNumber() << "\nСума витрати: " << spends.GetMoney()
-					<< "\nКатегорія: " << spends.GetCategory() << "(" << categoryes[1 - spends.GetCategory()] << ")"
-					<< "\nЧас: " << spends.GetTime() << endl;
+				file_report_week << spends.GetDate() << "\nРЎС…РѕРІРёС‰Рµ: " << storage->GetNumber() << "\nРЎСѓРјР° РІРёС‚СЂР°С‚Рё: " << spends.GetMoney()
+					<< "\nРљР°С‚РµРіРѕСЂС–СЏ: " << spends.GetCategory() << "(" << categoryes[1 - spends.GetCategory()] << ")"
+					<< "\nР§Р°СЃ: " << spends.GetTime() << endl;
 			}
 		}
 	}
-	file_report_week << "Витрачено за тиждень - " << totalSpends << " грн.";
+	file_report_week << "Р’РёС‚СЂР°С‡РµРЅРѕ Р·Р° С‚РёР¶РґРµРЅСЊ - " << totalSpends << " РіСЂРЅ.";
 	file_report_week.close();
 }
-void FinanceManagement::MonthReport()      // за місяць
+void FinanceManagement::MonthReport()      // Р·Р° РјС–СЃСЏС†СЊ
 {
 	float totalSpends = 0.0;
 	ofstream file_report_month("month_report.txt");
 	if (!file_report_month)
 	{
-		cout << "Помилка відкриття файлу для звіту" << endl;
+		cout << "РџРѕРјРёР»РєР° РІС–РґРєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ РґР»СЏ Р·РІС–С‚Сѓ" << endl;
 		return;
 	}
 	unsigned mon, year;
 	while (true)
 	{
-		cout << "Введіть рік(2000-2023) для створення звіту" << endl;
+		cout << "Р’РІРµРґС–С‚СЊ СЂС–Рє(2000-2023) РґР»СЏ СЃС‚РІРѕСЂРµРЅРЅСЏ Р·РІС–С‚Сѓ" << endl;
 		cin >> year;
 		if (year >= 2000 && year <= 2023) { break; }
 	}
 	while (true)
 	{
-		cout << "Введіть номер місяця(1-12), для якого буде створено звіт" << endl;
+		cout << "Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ РјС–СЃСЏС†СЏ(1-12), РґР»СЏ СЏРєРѕРіРѕ Р±СѓРґРµ СЃС‚РІРѕСЂРµРЅРѕ Р·РІС–С‚" << endl;
 		cin >> mon;
 		if (mon >= 1 && mon <= 12) { break; }
 	}
 	system("cls");
-	cout << "\tЗвіт за " << mon << "місяць: " << endl;
-	file_report_month << "\tЗвіт за " << " місяць " << mon << ": \n";
+	cout << "\tР—РІС–С‚ Р·Р° " << mon << "РјС–СЃСЏС†СЊ: " << endl;
+	file_report_month << "\tР—РІС–С‚ Р·Р° " << " РјС–СЃСЏС†СЊ " << mon << ": \n";
 	for (auto& storage : storages)
 	{
 		for (auto& spends : storage->GetSpendings())
@@ -224,28 +224,28 @@ void FinanceManagement::MonthReport()      // за місяць
 				cout << storage->GetNumber() << endl;
 				spends.Info();
 				totalSpends += spends.GetMoney();
-				file_report_month << spends.GetDate() << "Сховище: " << storage->GetNumber() << "\nСума витрати: " << spends.GetMoney()
-					<< "\nКатегорія: " << spends.GetCategory() << "(" << categoryes[spends.GetCategory()-1] << ")"
-					<< "\nЧас: " << spends.GetTime() << endl;
+				file_report_month << spends.GetDate() << "РЎС…РѕРІРёС‰Рµ: " << storage->GetNumber() << "\nРЎСѓРјР° РІРёС‚СЂР°С‚Рё: " << spends.GetMoney()
+					<< "\nРљР°С‚РµРіРѕСЂС–СЏ: " << spends.GetCategory() << "(" << categoryes[spends.GetCategory()-1] << ")"
+					<< "\nР§Р°СЃ: " << spends.GetTime() << endl;
 			}
 		}
 	}
-	file_report_month << "Витрачено "<< mon << "-го місяця - " << totalSpends << " грн.";
+	file_report_month << "Р’РёС‚СЂР°С‡РµРЅРѕ "<< mon << "-РіРѕ РјС–СЃСЏС†СЏ - " << totalSpends << " РіСЂРЅ.";
 	file_report_month.close();
 }
-//рейтинги витрат
-void FinanceManagement::RatingWeek()  //за тиждень
+//СЂРµР№С‚РёРЅРіРё РІРёС‚СЂР°С‚
+void FinanceManagement::RatingWeek()  //Р·Р° С‚РёР¶РґРµРЅСЊ
 {
 	set<Spending> rating;
 	ofstream file_rating_week("week_rating.txt");
 	if (!file_rating_week)
 	{
-		cout << "Помилка відкриття файлу" << endl;
+		cout << "РџРѕРјРёР»РєР° РІС–РґРєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ" << endl;
 		return;
 	}
 	Date dat;
 	int count = 0;
-	cout << "Введіть дату для формування тижневого рейтингу" << endl;
+	cout << "Р’РІРµРґС–С‚СЊ РґР°С‚Сѓ РґР»СЏ С„РѕСЂРјСѓРІР°РЅРЅСЏ С‚РёР¶РЅРµРІРѕРіРѕ СЂРµР№С‚РёРЅРіСѓ" << endl;
 	dat.Input();
 	for (auto& storage : storages)
 	{
@@ -258,42 +258,42 @@ void FinanceManagement::RatingWeek()  //за тиждень
 		}
 	}
 	system("cls");
-	cout << "Рейтинг витрат за тиждень" << endl;
-	file_rating_week << "Рейтинг витрат за тиждень\n";
+	cout << "Р РµР№С‚РёРЅРі РІРёС‚СЂР°С‚ Р·Р° С‚РёР¶РґРµРЅСЊ" << endl;
+	file_rating_week << "Р РµР№С‚РёРЅРі РІРёС‚СЂР°С‚ Р·Р° С‚РёР¶РґРµРЅСЊ\n";
 	int i = 0;
 	for (const auto& elem : rating)
 	{
 		i++;
-		cout << "\n\tТОП " << i << endl;
+		cout << "\n\tРўРћРџ " << i << endl;
 		elem.Info();
-		file_rating_week << "\nТоп " << i  << "\nДата - " 
-			<< elem.GetDate() << "Час - " << elem.GetTime() << "Сума витрати - " << elem.GetMoney()
-			<< "\nКатегорія - " << elem.GetCategory() << "(" << categoryes[elem.GetCategory() - 1] << ")"
+		file_rating_week << "\nРўРѕРї " << i  << "\nР”Р°С‚Р° - " 
+			<< elem.GetDate() << "Р§Р°СЃ - " << elem.GetTime() << "РЎСѓРјР° РІРёС‚СЂР°С‚Рё - " << elem.GetMoney()
+			<< "\nРљР°С‚РµРіРѕСЂС–СЏ - " << elem.GetCategory() << "(" << categoryes[elem.GetCategory() - 1] << ")"
 			<< endl;
 		if (i >= 3) { break; }
 	}
 	file_rating_week.close();
 }
-void FinanceManagement::RatingMonth()   // за місяць
+void FinanceManagement::RatingMonth()   // Р·Р° РјС–СЃСЏС†СЊ
 {
 	set<Spending> rating;
 	ofstream file_rating_month("month_rating.txt");
 	if (!file_rating_month)
 	{
-		cout << "Помилка відкриття файлу" << endl;
+		cout << "РџРѕРјРёР»РєР° РІС–РґРєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ" << endl;
 		return;
 	}
 	unsigned m, y;
 	int count = 0;
 	while (true)
 	{
-		cout << "Введіть рік(2000-2023) для створення рейтингу" << endl;
+		cout << "Р’РІРµРґС–С‚СЊ СЂС–Рє(2000-2023) РґР»СЏ СЃС‚РІРѕСЂРµРЅРЅСЏ СЂРµР№С‚РёРЅРіСѓ" << endl;
 		cin >> y;
 		if (y >= 2000 && y <= 2023) { break; }
 	}
 	while (true)
 	{
-		cout << "Введіть номер місяця(1-12), для якого буде створено рейтинг" << endl;
+		cout << "Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ РјС–СЃСЏС†СЏ(1-12), РґР»СЏ СЏРєРѕРіРѕ Р±СѓРґРµ СЃС‚РІРѕСЂРµРЅРѕ СЂРµР№С‚РёРЅРі" << endl;
 		cin >> m;
 		if (m >= 1 && m <= 12) { break; }
 	}
@@ -308,35 +308,35 @@ void FinanceManagement::RatingMonth()   // за місяць
 		}
 	}
 	system("cls");
-	cout << "Рейтинг витрат за " << m << "-ий місяць" << endl;
+	cout << "Р РµР№С‚РёРЅРі РІРёС‚СЂР°С‚ Р·Р° " << m << "-РёР№ РјС–СЃСЏС†СЊ" << endl;
 	int i = 0;
-	file_rating_month << "Рейтинг витрат за " << m << "-ий місяць\n";
+	file_rating_month << "Р РµР№С‚РёРЅРі РІРёС‚СЂР°С‚ Р·Р° " << m << "-РёР№ РјС–СЃСЏС†СЊ\n";
 	for (const auto& el : rating)
 	{
 		i++;
-		cout << "\nТОП " << i << endl;
+		cout << "\nРўРћРџ " << i << endl;
 		el.Info();
-		file_rating_month << "\n\tТоп " << i << "\nДата - "
-			<< el.GetDate() << "\nЧас - " << el.GetTime() << "\nСума витрати - " 
-			<< el.GetMoney() << "\nКатегорія - " << el.GetCategory() << "(" << categoryes[el.GetCategory()-1] << ")"
+		file_rating_month << "\n\tРўРѕРї " << i << "\nР”Р°С‚Р° - "
+			<< el.GetDate() << "\nР§Р°СЃ - " << el.GetTime() << "\nРЎСѓРјР° РІРёС‚СЂР°С‚Рё - " 
+			<< el.GetMoney() << "\nРљР°С‚РµРіРѕСЂС–СЏ - " << el.GetCategory() << "(" << categoryes[el.GetCategory()-1] << ")"
 			<< endl;
 		if (i >= 3) { break; }
 	}
 	file_rating_month.close();
 }
-//рейтинги категорій
-void FinanceManagement::RatingWeekCategory()  //за тиждень
+//СЂРµР№С‚РёРЅРіРё РєР°С‚РµРіРѕСЂС–Р№
+void FinanceManagement::RatingWeekCategory()  //Р·Р° С‚РёР¶РґРµРЅСЊ
 {
 	map<int, int> cat_count;
 	ofstream file_rating_week_cat("week_rating_category.txt");
 	if (!file_rating_week_cat)
 	{
-		cout << "Помилка відкриття файлу." << endl;
+		cout << "РџРѕРјРёР»РєР° РІС–РґРєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ." << endl;
 		return;
 	}
 	Date dat;
 	int count = 0;
-	cout << "Введіть дату для формування тижневого рейтингу" << endl;
+	cout << "Р’РІРµРґС–С‚СЊ РґР°С‚Сѓ РґР»СЏ С„РѕСЂРјСѓРІР°РЅРЅСЏ С‚РёР¶РЅРµРІРѕРіРѕ СЂРµР№С‚РёРЅРіСѓ" << endl;
 	dat.Input();
 	for (auto& storage : storages)
 	{
@@ -349,40 +349,40 @@ void FinanceManagement::RatingWeekCategory()  //за тиждень
 		}
 	}
 	system("cls");
-	cout << "Рейтинг категорій витрат за тиждень" << endl;
-	file_rating_week_cat << "Рейтинг категорій витрат за тиждень" << endl;
+	cout << "Р РµР№С‚РёРЅРі РєР°С‚РµРіРѕСЂС–Р№ РІРёС‚СЂР°С‚ Р·Р° С‚РёР¶РґРµРЅСЊ" << endl;
+	file_rating_week_cat << "Р РµР№С‚РёРЅРі РєР°С‚РµРіРѕСЂС–Р№ РІРёС‚СЂР°С‚ Р·Р° С‚РёР¶РґРµРЅСЊ" << endl;
 	int i = 0;
 	for (auto& cat : cat_count)
 	{
 		i++;
-		cout << "\nТОП " << i << "\nКатегорія - " << cat.first << "(" << categoryes[cat.first - 1] << ")"
-			<< "\nКількість витрат за цією категорією за тиждень - " << cat.second << endl;
-		file_rating_week_cat << "\nТОП " << i << "\nКатегорія - " << cat.first << "(" << categoryes[cat.first - 1] << ")"
-			<< "\nКількість витрат за цією категорією за тиждень - " << cat.second << endl;
+		cout << "\nРўРћРџ " << i << "\nРљР°С‚РµРіРѕСЂС–СЏ - " << cat.first << "(" << categoryes[cat.first - 1] << ")"
+			<< "\nРљС–Р»СЊРєС–СЃС‚СЊ РІРёС‚СЂР°С‚ Р·Р° С†С–С”СЋ РєР°С‚РµРіРѕСЂС–С”СЋ Р·Р° С‚РёР¶РґРµРЅСЊ - " << cat.second << endl;
+		file_rating_week_cat << "\nРўРћРџ " << i << "\nРљР°С‚РµРіРѕСЂС–СЏ - " << cat.first << "(" << categoryes[cat.first - 1] << ")"
+			<< "\nРљС–Р»СЊРєС–СЃС‚СЊ РІРёС‚СЂР°С‚ Р·Р° С†С–С”СЋ РєР°С‚РµРіРѕСЂС–С”СЋ Р·Р° С‚РёР¶РґРµРЅСЊ - " << cat.second << endl;
 		if (i >= 3) { break; }
 	}
 	file_rating_week_cat.close();
 }
-void FinanceManagement::RatingMonthCategory()  //за місяць
+void FinanceManagement::RatingMonthCategory()  //Р·Р° РјС–СЃСЏС†СЊ
 {
 	map<int, int> cat_count;
 	ofstream file_rating_month_cat("month_rating_category.txt");
 	if (!file_rating_month_cat)
 	{
-		cout << "Помилка відкриття файлу." << endl;
+		cout << "РџРѕРјРёР»РєР° РІС–РґРєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ." << endl;
 		return;
 	}
 	unsigned m, y;
 	int count = 0;
 	while (true)
 	{
-		cout << "Введіть рік(2000-2023) для створення рейтингу" << endl;
+		cout << "Р’РІРµРґС–С‚СЊ СЂС–Рє(2000-2023) РґР»СЏ СЃС‚РІРѕСЂРµРЅРЅСЏ СЂРµР№С‚РёРЅРіСѓ" << endl;
 		cin >> y;
 		if (y >= 2000 && y <= 2023) { break; }
 	}
 	while (true)
 	{
-		cout << "Введіть номер місяця(1-12), для якого буде створено рейтинг" << endl;
+		cout << "Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ РјС–СЃСЏС†СЏ(1-12), РґР»СЏ СЏРєРѕРіРѕ Р±СѓРґРµ СЃС‚РІРѕСЂРµРЅРѕ СЂРµР№С‚РёРЅРі" << endl;
 		cin >> m;
 		if (m >= 1 && m <= 12) { break; }
 	}
@@ -397,16 +397,16 @@ void FinanceManagement::RatingMonthCategory()  //за місяць
 		}
 	}
 	system("cls");
-	cout << "Рейтинг витрат за " << m << "-ий місяць" << endl;
-	file_rating_month_cat << "Рейтинг витрат за " << m << "-ий місяць\n";
+	cout << "Р РµР№С‚РёРЅРі РІРёС‚СЂР°С‚ Р·Р° " << m << "-РёР№ РјС–СЃСЏС†СЊ" << endl;
+	file_rating_month_cat << "Р РµР№С‚РёРЅРі РІРёС‚СЂР°С‚ Р·Р° " << m << "-РёР№ РјС–СЃСЏС†СЊ\n";
 	int i = 0;
 	for (auto& cat : cat_count)
 	{
 		i++;
-		cout << "\nТОП " << i << "\nКатегорія - " << cat.first << "(" << categoryes[cat.first - 1] << ")"
-			<< "\nКількість витрат за цією категорією за " << m << "-й місяць - " << cat.second << endl;
-		file_rating_month_cat << "\nТОП " << i << "\nКатегорія - " << cat.first << "(" << categoryes[cat.first - 1] << ")"
-			<< "\nКількість витрат за цією категорією за " << m << "-й місяць - " << cat.second << endl;
+		cout << "\nРўРћРџ " << i << "\nРљР°С‚РµРіРѕСЂС–СЏ - " << cat.first << "(" << categoryes[cat.first - 1] << ")"
+			<< "\nРљС–Р»СЊРєС–СЃС‚СЊ РІРёС‚СЂР°С‚ Р·Р° С†С–С”СЋ РєР°С‚РµРіРѕСЂС–С”СЋ Р·Р° " << m << "-Р№ РјС–СЃСЏС†СЊ - " << cat.second << endl;
+		file_rating_month_cat << "\nРўРћРџ " << i << "\nРљР°С‚РµРіРѕСЂС–СЏ - " << cat.first << "(" << categoryes[cat.first - 1] << ")"
+			<< "\nРљС–Р»СЊРєС–СЃС‚СЊ РІРёС‚СЂР°С‚ Р·Р° С†С–С”СЋ РєР°С‚РµРіРѕСЂС–С”СЋ Р·Р° " << m << "-Р№ РјС–СЃСЏС†СЊ - " << cat.second << endl;
 		if (i >= 3) { break; }
 	}
 	file_rating_month_cat.close();
