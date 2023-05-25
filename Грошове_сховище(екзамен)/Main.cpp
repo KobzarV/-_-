@@ -3,7 +3,7 @@
 int main()
 {
 	setlocale(LC_CTYPE, "ukr");
-	MoneyStorage* stor_ptr1;  // указатели на базовый абстрактный класс "Хранилище денег"
+	MoneyStorage* stor_ptr1;  // СѓРєР°Р·Р°С‚РµР»Рё РЅР° Р±Р°Р·РѕРІС‹Р№ Р°Р±СЃС‚СЂР°РєС‚РЅС‹Р№ РєР»Р°СЃСЃ "РҐСЂР°РЅРёР»РёС‰Рµ РґРµРЅРµРі"
 	MoneyStorage* stor_ptr2;
 	MoneyStorage* stor_ptr3;
 	MoneyStorage* stor_ptr4;
@@ -24,8 +24,8 @@ int main()
 	stor_ptr5 = new Card(5, 2000, "UkrBisBank");
 	stor_ptr6 = new Card(6, 0, "Pryvat");
 
-	FinanceManagement system; // создаём систему управления финансами
-	system.AddStorage(stor_ptr1); // добавляем в систему "храналища денег"
+	FinanceManagement system; // СЃРѕР·РґР°С‘Рј СЃРёСЃС‚РµРјСѓ СѓРїСЂР°РІР»РµРЅРёСЏ С„РёРЅР°РЅСЃР°РјРё
+	system.AddStorage(stor_ptr1); // РґРѕР±Р°РІР»СЏРµРј РІ СЃРёСЃС‚РµРјСѓ "С…СЂР°РЅР°Р»РёС‰Р° РґРµРЅРµРі"
 	system.AddStorage(stor_ptr2);
 	system.AddStorage(stor_ptr3);
 	system.AddStorage(stor_ptr4);
