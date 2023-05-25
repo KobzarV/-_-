@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FinanceManagement" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICAECAAAAABAAAAAAQAAABAAAQAIAAAABAGAAEAIIAA=</HashCode>
+      <FileName>Finance_menegement.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spending" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABAAAAAAEAAAAQAAAAAAAAEAAAgAACAAEoAUAAEAA=</HashCode>
+      <FileName>Spending.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoneyStorage" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAIAAQAAQIAAAAAAEAQIAAAAAAACAAAAAEAAAIA=</HashCode>
+      <FileName>Storages.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Card" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIBAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAEAAAAA=</HashCode>
+      <FileName>Storages.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wallet" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAACAAAAACAAAAAEAAAAA=</HashCode>
+      <FileName>Storages.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Date" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAkAAAAAAAAAAAAAAAIAAAAEAQAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Date_Time.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Time" Collapsed="true">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAABAAAAAAAAIAAAAEAAAAAACAAAAAAAAAQA=</HashCode>
+      <FileName>Date_Time.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
