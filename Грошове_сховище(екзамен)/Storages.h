@@ -8,22 +8,22 @@ using namespace std;
 class MoneyStorage
 {
 protected:
-	long long number; // номер карти
-	float balance;  // баланс
-	multiset<Spending> spendings;  // витрати
-	float credit_limit; // кредитна карта або дебитова
+	long long number; // РЅРѕРјРµСЂ РєР°СЂС‚Рё
+	float balance;  // Р±Р°Р»Р°РЅСЃ
+	multiset<Spending> spendings;  // РІРёС‚СЂР°С‚Рё
+	float credit_limit; // РєСЂРµРґРёС‚РЅР° РєР°СЂС‚Р° Р°Р±Рѕ РґРµР±РёС‚РѕРІР°
 public:
-	// конструктори
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРё
 	MoneyStorage();
 	MoneyStorage(long long num, float credit);
 	MoneyStorage(multiset<Spending>& spends, long long num, float balans, float limit);
-	virtual void Info() = 0;  // вивід інформації про сховище
-	virtual void Edit() = 0; // редагувати інформацію про сховище
-	void AddMoney(); // поповнення карти/гаманця
-	void AddMoney(float money); // поповнення карти/гаманця
-	void AddSpending();  // додати витрату
-	long long GetNumber() const { return number; }  // вивести номер сховища
-	multiset<Spending> GetSpendings() const { return spendings; }  // отримати витрати цієї карти
+	virtual void Info() = 0;  // РІРёРІС–Рґ С–РЅС„РѕСЂРјР°С†С–С— РїСЂРѕ СЃС…РѕРІРёС‰Рµ
+	virtual void Edit() = 0; // СЂРµРґР°РіСѓРІР°С‚Рё С–РЅС„РѕСЂРјР°С†С–СЋ РїСЂРѕ СЃС…РѕРІРёС‰Рµ
+	void AddMoney(); // РїРѕРїРѕРІРЅРµРЅРЅСЏ РєР°СЂС‚Рё/РіР°РјР°РЅС†СЏ
+	void AddMoney(float money); // РїРѕРїРѕРІРЅРµРЅРЅСЏ РєР°СЂС‚Рё/РіР°РјР°РЅС†СЏ
+	void AddSpending();  // РґРѕРґР°С‚Рё РІРёС‚СЂР°С‚Сѓ
+	long long GetNumber() const { return number; }  // РІРёРІРµСЃС‚Рё РЅРѕРјРµСЂ СЃС…РѕРІРёС‰Р°
+	multiset<Spending> GetSpendings() const { return spendings; }  // РѕС‚СЂРёРјР°С‚Рё РІРёС‚СЂР°С‚Рё С†С–С”С— РєР°СЂС‚Рё
 };
 
 class Card : public MoneyStorage
