@@ -13,9 +13,9 @@ void Date::Input()
 {
 	while (true)
 	{
-		cout << "Ââåä³òü äåíü âèòðàòè: "; cin >> day;
-		cout << "Ââåä³òü ì³ñÿöü âèòðàòè: "; cin >> month;
-		cout << "Ââåä³òü ð³ê âèòðàòè: "; cin >> year;
+		cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð´ÐµÐ½ÑŒ Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸: "; cin >> day;
+		cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð¼Ñ–ÑÑÑ†ÑŒ Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸: "; cin >> month;
+		cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ñ€Ñ–Ðº Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸: "; cin >> year;
 		if (year >= 2000 && year <= 2023)
 		{
 			if (month < 12)
@@ -24,7 +24,7 @@ void Date::Input()
 				{
 					if (day > 29)
 					{
-						cout << "Íåêîðåêòíèé äåíü!!" << endl;
+						cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð¸Ð¹ Ð´ÐµÐ½ÑŒ!!" << endl;
 						continue;
 					}
 					else { break; }
@@ -33,28 +33,28 @@ void Date::Input()
 				{
 					if (day > daysInMonth[month])
 					{
-						cout << "Íåêîðåêòíèé äåíü!!" << endl;
+						cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð¸Ð¹ Ð´ÐµÐ½ÑŒ!!" << endl;
 						continue;
 					}
 					else { break; }
 				}
 			}
-			else { cout << "Íåêîðåêòíèé ì³ñÿöü(1-12)!!" << endl; continue; }
+			else { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð¸Ð¹ Ð¼Ñ–ÑÑÑ†ÑŒ(1-12)!!" << endl; continue; }
 		}
-		else { cout << "Íåêîðåêòíèé ð³ê (2000-2023)!!" << endl; continue; }
+		else { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð¸Ð¹ Ñ€Ñ–Ðº (2000-2023)!!" << endl; continue; }
 	}
 }
 void Date::Edit(int d, int m, int y)
 {
 	if (y >= 2000 && y <= 2023) { year = y; }
-	else { cout << "Íåêîðåêòíèé ð³ê (2000-2023)!! (ââîäÿòüñÿ ðàíäîìí³ äàí³)" << endl; year = 2000 + rand() % 24; }
+	else { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð¸Ð¹ Ñ€Ñ–Ðº (2000-2023)!! (Ð²Ð²Ð¾Ð´ÑÑ‚ÑŒÑÑ Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ñ– Ð´Ð°Ð½Ñ–)" << endl; year = 2000 + rand() % 24; }
 	if (m < 12) { month = m; }
-	else { cout << "Íåêîðåêòíèé ì³ñÿöü(1-12)!! (ââîäÿòüñÿ ðàíäîìí³ äàí³)" << endl; month = 1 + rand() % 12; }
+	else { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð¸Ð¹ Ð¼Ñ–ÑÑÑ†ÑŒ(1-12)!! (Ð²Ð²Ð¾Ð´ÑÑ‚ÑŒÑÑ Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ñ– Ð´Ð°Ð½Ñ–)" << endl; month = 1 + rand() % 12; }
 	if (m == 1)
 	{
 		if (d > 29)
 		{
-			cout << "Íåêîðåêòíèé äåíü!! (ââîäÿòüñÿ ðàíäîìí³ äàí³)" << endl;
+			cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð¸Ð¹ Ð´ÐµÐ½ÑŒ!! (Ð²Ð²Ð¾Ð´ÑÑ‚ÑŒÑÑ Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ñ– Ð´Ð°Ð½Ñ–)" << endl;
 			day = 1 + rand() % 29;
 		}
 		else { day = d; }
@@ -63,7 +63,7 @@ void Date::Edit(int d, int m, int y)
 	{
 		if (d > daysInMonth[d-1])
 		{
-			cout << "Íåêîðåêòíèé äåíü!! (ââîäÿòüñÿ ðàíäîìí³ äàí³)" << endl;
+			cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð¸Ð¹ Ð´ÐµÐ½ÑŒ!! (Ð²Ð²Ð¾Ð´ÑÑ‚ÑŒÑÑ Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ñ– Ð´Ð°Ð½Ñ–)" << endl;
 			day = 1 + rand() % 30;
 		}
 		else { day = d; }
@@ -90,11 +90,11 @@ int GetDaysInYear(int year)
 {
 	return isLeap(year) ? 366 : 365;
 }
-int diff_between_dates(Date begin_date, Date end_date) // ôóíêöèÿ, îïðåäåëÿþùàÿ êîëè÷åñòâî äíåé ìåæäó 2-ìÿ äàòàìè äàòàìè
+int diff_between_dates(Date begin_date, Date end_date) // Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ, Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÑŽÑ‰Ð°Ñ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð´Ð½ÐµÐ¹ Ð¼ÐµÐ¶Ð´Ñƒ 2-Ð¼Ñ Ð´Ð°Ñ‚Ð°Ð¼Ð¸ Ð´Ð°Ñ‚Ð°Ð¼Ð¸
 {
 	int days = 0;
 
-	// Ðîçðàõóíîê äí³â äî ïî÷àòêîâî¿ äàòè
+	// Ð Ð¾Ð·Ñ€Ð°Ñ…ÑƒÐ½Ð¾Ðº Ð´Ð½Ñ–Ð² Ð´Ð¾ Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð²Ð¾Ñ— Ð´Ð°Ñ‚Ð¸
 	for (int year = 2000; year < begin_date.year; ++year)
 		days += GetDaysInYear(year);
 
@@ -103,7 +103,7 @@ int diff_between_dates(Date begin_date, Date end_date) // ôóíêöèÿ, îïðåäåëÿþùàÿ 
 
 	days += begin_date.day;
 
-	// Ðîçðàõóíîê äí³â äî ê³íöåâî¿ äàòè
+	// Ð Ð¾Ð·Ñ€Ð°Ñ…ÑƒÐ½Ð¾Ðº Ð´Ð½Ñ–Ð² Ð´Ð¾ ÐºÑ–Ð½Ñ†ÐµÐ²Ð¾Ñ— Ð´Ð°Ñ‚Ð¸
 	for (int year = 2000; year < end_date.year; ++year)
 		days -= GetDaysInYear(year);
 
@@ -113,7 +113,7 @@ int diff_between_dates(Date begin_date, Date end_date) // ôóíêöèÿ, îïðåäåëÿþùàÿ 
 	days -= end_date.day;
 
 	if (days < 0) { days *= -1; }
-	// Âðàõîâóºìî âèñîêîñí³ ðîêè
+	// Ð’Ñ€Ð°Ñ…Ð¾Ð²ÑƒÑ”Ð¼Ð¾ Ð²Ð¸ÑÐ¾ÐºÐ¾ÑÐ½Ñ– Ñ€Ð¾ÐºÐ¸
 	if (isLeap(begin_date.year) && begin_date.month <= 2)
 		--days;
 
@@ -131,17 +131,17 @@ void Time::Input()
 {
 	while (true)
 	{
-		cout << "Ââåä³òü ãîäèíó âèòðàòè: "; cin >> hours;
-		cout << "Ââåä³òü õâèëèíó âèòðàòè: "; cin >> minutes;
-		cout << "Ââåä³òü ñåêóíäó âèòðàòè: "; cin >> seconds;
+		cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð³Ð¾Ð´Ð¸Ð½Ñƒ Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸: "; cin >> hours;
+		cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ñ…Ð²Ð¸Ð»Ð¸Ð½Ñƒ Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸: "; cin >> minutes;
+		cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ ÑÐµÐºÑƒÐ½Ð´Ñƒ Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸: "; cin >> seconds;
 		if (seconds < 60)
 		{
 			if (minutes < 60)
-				if (hours > 24) { cout << "Íåêîðåêòíà ãîäèíà(0-23)!!" << endl; continue; }
+				if (hours > 24) { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð° Ð³Ð¾Ð´Ð¸Ð½Ð°(0-23)!!" << endl; continue; }
 				else { break; }
-			else { cout << "Íåêîðåêòíà õâèëèíà(0-59)!!" << endl; continue; }
+			else { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð° Ñ…Ð²Ð¸Ð»Ð¸Ð½Ð°(0-59)!!" << endl; continue; }
 		}
-		else { cout << "Íåêîðåêòíà ñåêóíäà(0-59)!!" << endl; continue; }
+		else { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð° ÑÐµÐºÑƒÐ½Ð´Ð°(0-59)!!" << endl; continue; }
 	}
 }
 void Time::Edit(int sec, int min, int h)
@@ -149,11 +149,11 @@ void Time::Edit(int sec, int min, int h)
 	if (sec < 60)
 	{
 		if (min < 60)
-			if (h > 24) { cout << "Íåêîðåêòíà ãîäèíà(0-23)!! (ââîäÿòüñÿ ðàíäîìí³ äàí³)" << endl; hours = rand() % 24; }
+			if (h > 24) { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð° Ð³Ð¾Ð´Ð¸Ð½Ð°(0-23)!! (Ð²Ð²Ð¾Ð´ÑÑ‚ÑŒÑÑ Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ñ– Ð´Ð°Ð½Ñ–)" << endl; hours = rand() % 24; }
 			else { seconds = sec; minutes = min; hours = h; }
-		else { cout << "Íåêîðåêòíà õâèëèíà(0-59)!! (ââîäÿòüñÿ ðàíäîìí³ äàí³)" << endl; minutes = rand() % 60; }
+		else { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð° Ñ…Ð²Ð¸Ð»Ð¸Ð½Ð°(0-59)!! (Ð²Ð²Ð¾Ð´ÑÑ‚ÑŒÑÑ Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ñ– Ð´Ð°Ð½Ñ–)" << endl; minutes = rand() % 60; }
 	}
-	else { cout << "Íåêîðåêòíà ñåêóíäà(0-59)!! (ââîäÿòüñÿ ðàíäîìí³ äàí³)" << endl; seconds = rand() % 60; }
+	else { cout << "ÐÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð° ÑÐµÐºÑƒÐ½Ð´Ð°(0-59)!! (Ð²Ð²Ð¾Ð´ÑÑ‚ÑŒÑÑ Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ñ– Ð´Ð°Ð½Ñ–)" << endl; seconds = rand() % 60; }
 }
 
 ostream& operator<<(ostream& os, const Time& time)
