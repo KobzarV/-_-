@@ -17,10 +17,10 @@ Spending::Spending(float mon, int cat, Date d, Time t)
 	else {
 		while (true)
 		{
-			cout << "Ââåä³òü íîìåð êàòåãîð³¿ âèòðàòè:" << endl;
-			cout << "1 - ìàãàçèí; 2 - ïåðåêàçè; 3 - ìîá³ëüíèé;" << endl;
-			cout << "4 - êîìóíàëüí³ ïîñëóãè; 5 - ðîçâàãè; 6 - òðàíñïîðò;" << endl;
-			cout << "7 - ³íøå" << endl;
+			cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð½Ð¾Ð¼ÐµÑ€ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ— Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸:" << endl;
+			cout << "1 - Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½; 2 - Ð¿ÐµÑ€ÐµÐºÐ°Ð·Ð¸; 3 - Ð¼Ð¾Ð±Ñ–Ð»ÑŒÐ½Ð¸Ð¹;" << endl;
+			cout << "4 - ÐºÐ¾Ð¼ÑƒÐ½Ð°Ð»ÑŒÐ½Ñ– Ð¿Ð¾ÑÐ»ÑƒÐ³Ð¸; 5 - Ñ€Ð¾Ð·Ð²Ð°Ð³Ð¸; 6 - Ñ‚Ñ€Ð°Ð½ÑÐ¿Ð¾Ñ€Ñ‚;" << endl;
+			cout << "7 - Ñ–Ð½ÑˆÐµ" << endl;
 			cin >> cat;
 			if (cat < 1 || cat > 7) { continue; }
 			else { break; }
@@ -31,25 +31,25 @@ Spending::Spending(float mon, int cat, Date d, Time t)
 }
 void Spending::Info() const
 {
-	cout << "\nÂèòðàòà" << endl;
-	cout << "Âèòðà÷åíî ãðîøåé - " << money << endl;
-	cout << "Êàòåãîð³ÿ âèòðàòè - " << category << "(" << categoryes[category-1] << ")" << endl;
-	cout << "Äàòà âèòðàòè" << endl;
+	cout << "\nÐ’Ð¸Ñ‚Ñ€Ð°Ñ‚Ð°" << endl;
+	cout << "Ð’Ð¸Ñ‚Ñ€Ð°Ñ‡ÐµÐ½Ð¾ Ð³Ñ€Ð¾ÑˆÐµÐ¹ - " << money << endl;
+	cout << "ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸ - " << category << "(" << categoryes[category-1] << ")" << endl;
+	cout << "Ð”Ð°Ñ‚Ð° Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸" << endl;
 	date.Output();
-	cout << "\n×àñ âèòðàòè" << endl;
+	cout << "\nÐ§Ð°Ñ Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸" << endl;
 	time.Output();
 	cout << endl;
 }
 void Spending::Input()
 {
-	cout << "Ââåä³òü ñóìó âèòðàòè - "; cin >> money;
+	cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ ÑÑƒÐ¼Ñƒ Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸ - "; cin >> money;
 	if (money <= 0) { money = 1; }
 	while (true)
 	{
-		cout << "Ââåä³òü íîìåð êàòåãîð³¿ âèòðàòè:" << endl;
-		cout << "1 - ìàãàçèí; 2 - ïåðåêàçè; 3 - ìîá³ëüíèé;" << endl;
-		cout << "4 - êîìóíàëüí³ ïîñëóãè; 5 - ðîçâàãè; 6 - òðàíñïîðò;" << endl;
-		cout << "7 - ³íøå" << endl;
+		cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð½Ð¾Ð¼ÐµÑ€ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ñ–Ñ— Ð²Ð¸Ñ‚Ñ€Ð°Ñ‚Ð¸:" << endl;
+		cout << "1 - Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½; 2 - Ð¿ÐµÑ€ÐµÐºÐ°Ð·Ð¸; 3 - Ð¼Ð¾Ð±Ñ–Ð»ÑŒÐ½Ð¸Ð¹;" << endl;
+		cout << "4 - ÐºÐ¾Ð¼ÑƒÐ½Ð°Ð»ÑŒÐ½Ñ– Ð¿Ð¾ÑÐ»ÑƒÐ³Ð¸; 5 - Ñ€Ð¾Ð·Ð²Ð°Ð³Ð¸; 6 - Ñ‚Ñ€Ð°Ð½ÑÐ¿Ð¾Ñ€Ñ‚;" << endl;
+		cout << "7 - Ñ–Ð½ÑˆÐµ" << endl;
 		cin >> category;
 		if (category < 1 || category > 7) { continue; }
 		else { break; }
