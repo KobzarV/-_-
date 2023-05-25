@@ -1,6 +1,6 @@
 #pragma once
 #include"Storages.h"
-/////////////////////////////////  ·‡ÁÓ‚ËÈ ÍÎ‡Ò
+/////////////////////////////////  –±–∞–∑–æ–≤–∏–π –∫–ª–∞—Å
 MoneyStorage::MoneyStorage()
 {
 	int temp = 10000000 + rand() % 1000000000;
@@ -28,15 +28,15 @@ void MoneyStorage::AddMoney()
 {
 	float temp;
 	system("cls");
-	cout << "¬‚Â‰≥Ú¸ ÒÛÏÛ ÔÓÔÓ‚ÌÂÌÌˇ - ";
+	cout << "–í–≤–µ–¥—ñ—Ç—å —Å—É–º—É –ø–æ–ø–æ–≤–Ω–µ–Ω–Ω—è - ";
 	cin >> temp;
-	if (temp <= 0) { cout << "ÕÂ‚≥ÌÓ ‚‚Â‰ÂÌ≥ ‰‡Ì≥" << endl; temp = 0; }
+	if (temp <= 0) { cout << "–ù–µ–≤—ñ—Ä–Ω–æ –≤–≤–µ–¥–µ–Ω—ñ –¥–∞–Ω—ñ" << endl; temp = 0; }
 	balance += temp;
 }
 void MoneyStorage::AddMoney(float money)
 {
 	system("cls");
-	if (money <= 0) { cout << "ÕÂ‚≥ÌÓ ‚‚Â‰ÂÌ≥ ‰‡Ì≥" << endl; money = 1; }
+	if (money <= 0) { cout << "–ù–µ–≤—ñ—Ä–Ω–æ –≤–≤–µ–¥–µ–Ω—ñ –¥–∞–Ω—ñ" << endl; money = 1; }
 	balance += money;
 }
 void MoneyStorage::AddSpending()
@@ -46,19 +46,19 @@ void MoneyStorage::AddSpending()
 	Date dat;
 	Time tm;
 	system("cls");
-	cout << "\tƒÓ‰‡ÚË ‚ËÚ‡ÚÛ" << endl;
-	cout << "¬‚Â‰≥Ú¸ ÒÛÏÛ ‚ËÚ‡ÚË - "; cin >> money;
+	cout << "\t–î–æ–¥–∞—Ç–∏ –≤–∏—Ç—Ä–∞—Ç—É" << endl;
+	cout << "–í–≤–µ–¥—ñ—Ç—å —Å—É–º—É –≤–∏—Ç—Ä–∞—Ç–∏ - "; cin >> money;
 	if (money <= 0 || money > balance)
 	{
-		cout << "ÕÂÍÓÂÍÚÌ≥ ‰‡Ì≥ ‡·Ó ÌÂ‰ÓÒÚ‡ÚÌ¸Ó ÍÓ¯Ú≥‚!" << endl;
+		cout << "–ù–µ–∫–æ—Ä–µ–∫—Ç–Ω—ñ –¥–∞–Ω—ñ –∞–±–æ –Ω–µ–¥–æ—Å—Ç–∞—Ç–Ω—å–æ –∫–æ—à—Ç—ñ–≤!" << endl;
 		return;
 	}
 	while (true)
 	{
-		cout << "¬‚Â‰≥Ú¸ ÌÓÏÂ Í‡ÚÂ„Ó≥ø ‚ËÚ‡ÚË:" << endl;
-		cout << "1 - Ï‡„‡ÁËÌ; 2 - ÔÂÂÍ‡ÁË; 3 - ÏÓ·≥Î¸ÌËÈ;" << endl;
-		cout << "4 - ÍÓÏÛÌ‡Î¸Ì≥ ÔÓÒÎÛ„Ë; 5 - ÓÁ‚‡„Ë; 6 - Ú‡ÌÒÔÓÚ;" << endl;
-		cout << "7 - ≥Ì¯Â" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–º–µ—Ä –∫–∞—Ç–µ–≥–æ—Ä—ñ—ó –≤–∏—Ç—Ä–∞—Ç–∏:" << endl;
+		cout << "1 - –º–∞–≥–∞–∑–∏–Ω; 2 - –ø–µ—Ä–µ–∫–∞–∑–∏; 3 - –º–æ–±—ñ–ª—å–Ω–∏–π;" << endl;
+		cout << "4 - –∫–æ–º—É–Ω–∞–ª—å–Ω—ñ –ø–æ—Å–ª—É–≥–∏; 5 - —Ä–æ–∑–≤–∞–≥–∏; 6 - —Ç—Ä–∞–Ω—Å–ø–æ—Ä—Ç;" << endl;
+		cout << "7 - —ñ–Ω—à–µ" << endl;
 		cin >> cat;
 		if (cat < 1 || cat > 7) { continue; }
 		else { break; }
@@ -68,16 +68,16 @@ void MoneyStorage::AddSpending()
 	spendings.insert(Spending(money, cat, dat, tm));
 }
 
-//////////////////////////////////   ÍÎ‡Ò Card
+//////////////////////////////////   –∫–ª–∞—Å Card
 
 Card::Card(long long num, float credit, string name) : MoneyStorage(num, credit) { card_name = name; }
 Card::Card(multiset<Spending>& m, long long num, float t, float credit, string name) : MoneyStorage(m, num, credit, t) { card_name = name; }
 void Card::Info()
 {
-	cout << "\t\t ‡Ú‡ - " << card_name << endl;
-	cout << "ÕÓÏÂ - " << number << endl;
-	cout << "¡‡Î‡ÌÒ - " << balance << endl;
-	cout << " Â‰ËÚÌËÈ Î≥Ï≥Ú - " << credit_limit << endl;
+	cout << "\t\t–ö–∞—Ä—Ç–∞ - " << card_name << endl;
+	cout << "–ù–æ–º–µ—Ä - " << number << endl;
+	cout << "–ë–∞–ª–∞–Ω—Å - " << balance << endl;
+	cout << "–ö—Ä–µ–¥–∏—Ç–Ω–∏–π –ª—ñ–º—ñ—Ç - " << credit_limit << endl;
 	for (const auto& i : spendings) {
 		i.Info();
 	}
@@ -88,57 +88,57 @@ void Card::Edit()
 	float limit;
 	long long t;
 	string nam;
-	cout << "\tÃÂÌ˛ Â‰‡„Û‚‡ÌÌˇ Í‡ÚË" << endl;
-	cout << "1) «Ï≥ÌËÚË ‚Ò≥ ‰‡Ì≥" << endl;
-	cout << "2) «Ï≥ÌËÚË Ì‡Á‚Û Í‡ÚË" << endl;
-	cout << "3) «Ï≥ÌËÚË ÌÓÏÂ Í‡ÚË" << endl;
-	cout << "4) «Ï≥ÌËÚË ÍÂ‰ËÚÌËÈ Î≥Ï≥Ú" << endl;
+	cout << "\t–ú–µ–Ω—é —Ä–µ–¥–∞–≥—É–≤–∞–Ω–Ω—è –∫–∞—Ä—Ç–∏" << endl;
+	cout << "1) –ó–º—ñ–Ω–∏—Ç–∏ –≤—Å—ñ –¥–∞–Ω—ñ" << endl;
+	cout << "2) –ó–º—ñ–Ω–∏—Ç–∏ –Ω–∞–∑–≤—É –∫–∞—Ä—Ç–∏" << endl;
+	cout << "3) –ó–º—ñ–Ω–∏—Ç–∏ –Ω–æ–º–µ—Ä –∫–∞—Ä—Ç–∏" << endl;
+	cout << "4) –ó–º—ñ–Ω–∏—Ç–∏ –∫—Ä–µ–¥–∏—Ç–Ω–∏–π –ª—ñ–º—ñ—Ç" << endl;
 	cin >> choise;
 	switch (choise)
 	{
 	case 1:
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚ËÈ ÌÓÏÂ " << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤–∏–π –Ω–æ–º–µ—Ä " << endl;
 		cin >> t;
 		number = t;
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚Û Ì‡Á‚Û Í‡ÚË" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤—É –Ω–∞–∑–≤—É –∫–∞—Ä—Ç–∏" << endl;
 		cin >> nam;
 		card_name = nam;
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚ËÈ ÍÂ‰ËÚÌËÈ Î≥Ï≥Ú" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤–∏–π –∫—Ä–µ–¥–∏—Ç–Ω–∏–π –ª—ñ–º—ñ—Ç" << endl;
 		cin >> limit;
-		if (limit <= 0) { cout << "ÕÂ‚≥ÌÓ ‚‚Â‰ÂÌ≥ ‰‡Ì≥" << endl; credit_limit = 0; }
+		if (limit <= 0) { cout << "–ù–µ–≤—ñ—Ä–Ω–æ –≤–≤–µ–¥–µ–Ω—ñ –¥–∞–Ω—ñ" << endl; credit_limit = 0; }
 		else { credit_limit = limit; }
 		break;
 	case 2:
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚Û Ì‡Á‚Û Í‡ÚË" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤—É –Ω–∞–∑–≤—É –∫–∞—Ä—Ç–∏" << endl;
 		cin >> nam;
 		card_name = nam;
 		break;
 	case 3:
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚ËÈ ÌÓÏÂ Í‡ÚË" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤–∏–π –Ω–æ–º–µ—Ä –∫–∞—Ä—Ç–∏" << endl;
 		cin >> t;
 		number = t;
 		break;
 	case 4:
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚ËÈ ÍÂ‰ËÚÌËÈ Î≥Ï≥Ú" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤–∏–π –∫—Ä–µ–¥–∏—Ç–Ω–∏–π –ª—ñ–º—ñ—Ç" << endl;
 		cin >> limit;
-		if (limit <= 0) { cout << "ÕÂ‚≥ÌÓ ‚‚Â‰ÂÌ≥ ‰‡Ì≥" << endl; credit_limit = 0; }
+		if (limit <= 0) { cout << "–ù–µ–≤—ñ—Ä–Ω–æ –≤–≤–µ–¥–µ–Ω—ñ –¥–∞–Ω—ñ" << endl; credit_limit = 0; }
 		else { credit_limit = limit; }
 		break;
 	default:
-		cout << "ÕÂÏ‡∫ Ú‡ÍÓ„Ó ÔÛÌÍÚÛ ÏÂÌ˛!" << endl;
+		cout << "–ù–µ–º–∞—î —Ç–∞–∫–æ–≥–æ –ø—É–Ω–∫—Ç—É –º–µ–Ω—é!" << endl;
 	}
 }
 
-////////////////////////////////// ÍÎ‡Ò Wallet
+////////////////////////////////// –∫–ª–∞—Å Wallet
 
 Wallet::Wallet(long long num, float credit, string name) : MoneyStorage(num, credit) { wallet_name = name; }
 Wallet::Wallet(multiset<Spending>& m, long long num, float t, float credit, string name) : MoneyStorage(m, num, credit, t) { wallet_name = name; }
 void Wallet::Info()
 {
-	cout << "\t\t¬≥ÚÛ‡Î¸ÌËÈ „‡Ï‡ÌÂˆ¸ - " << wallet_name << endl;
-	cout << "ÕÓÏÂ - " << number << endl;
-	cout << "¡‡Î‡ÌÒ - " << balance << endl;
-	cout << " Â‰ËÚÌËÈ Î≥Ï≥Ú - " << credit_limit << endl;
+	cout << "\t\t–í—ñ—Ä—Ç—É–∞–ª—å–Ω–∏–π –≥–∞–º–∞–Ω–µ—Ü—å - " << wallet_name << endl;
+	cout << "–ù–æ–º–µ—Ä - " << number << endl;
+	cout << "–ë–∞–ª–∞–Ω—Å - " << balance << endl;
+	cout << "–ö—Ä–µ–¥–∏—Ç–Ω–∏–π –ª—ñ–º—ñ—Ç - " << credit_limit << endl;
 	for (const auto& i : spendings) {
 		i.Info();
 	}
@@ -148,43 +148,43 @@ void Wallet::Edit()
 	int choise, limit;
 	long long t;
 	string nam;
-	cout << "\tÃÂÌ˛ Â‰‡„Û‚‡ÌÌˇ „‡Ï‡Ìˆˇ" << endl;
-	cout << "1) «Ï≥ÌËÚË ‚Ò≥ ‰‡Ì≥" << endl;
-	cout << "2) «Ï≥ÌËÚË Ì‡Á‚Û „‡Ï‡Ìˆˇ" << endl;
-	cout << "3) «Ï≥ÌËÚË ÌÓÏÂ „‡Ï‡Ìˆˇ" << endl;
-	cout << "4) «Ï≥ÌËÚË ÍÂ‰ËÚÌËÈ Î≥Ï≥Ú" << endl;
+	cout << "\t–ú–µ–Ω—é —Ä–µ–¥–∞–≥—É–≤–∞–Ω–Ω—è –≥–∞–º–∞–Ω—Ü—è" << endl;
+	cout << "1) –ó–º—ñ–Ω–∏—Ç–∏ –≤—Å—ñ –¥–∞–Ω—ñ" << endl;
+	cout << "2) –ó–º—ñ–Ω–∏—Ç–∏ –Ω–∞–∑–≤—É –≥–∞–º–∞–Ω—Ü—è" << endl;
+	cout << "3) –ó–º—ñ–Ω–∏—Ç–∏ –Ω–æ–º–µ—Ä –≥–∞–º–∞–Ω—Ü—è" << endl;
+	cout << "4) –ó–º—ñ–Ω–∏—Ç–∏ –∫—Ä–µ–¥–∏—Ç–Ω–∏–π –ª—ñ–º—ñ—Ç" << endl;
 	cin >> choise;
 	switch (choise)
 	{
 	case 1:
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚ËÈ ÌÓÏÂ " << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤–∏–π –Ω–æ–º–µ—Ä " << endl;
 		cin >> t;
 		number = t;
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚Û Ì‡Á‚Û" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤—É –Ω–∞–∑–≤—É" << endl;
 		cin >> nam;
 		wallet_name = nam;
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚ËÈ ÍÂ‰ËÚÌËÈ Î≥Ï≥Ú" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤–∏–π –∫—Ä–µ–¥–∏—Ç–Ω–∏–π –ª—ñ–º—ñ—Ç" << endl;
 		cin >> limit;
-		if (limit <= 0) { cout << "ÕÂ‚≥ÌÓ ‚‚Â‰ÂÌ≥ ‰‡Ì≥" << endl; credit_limit = 0; }
+		if (limit <= 0) { cout << "–ù–µ–≤—ñ—Ä–Ω–æ –≤–≤–µ–¥–µ–Ω—ñ –¥–∞–Ω—ñ" << endl; credit_limit = 0; }
 		else { credit_limit = limit; }
 		break;
 	case 2:
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚Û Ì‡Á‚Û Í‡ÚË" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤—É –Ω–∞–∑–≤—É –∫–∞—Ä—Ç–∏" << endl;
 		cin >> nam;
 		wallet_name = nam;
 		break;
 	case 3:
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚ËÈ ÌÓÏÂ Í‡ÚË" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤–∏–π –Ω–æ–º–µ—Ä –∫–∞—Ä—Ç–∏" << endl;
 		cin >> t;
 		number = t;
 		break;
 	case 4:
-		cout << "¬‚Â‰≥Ú¸ ÌÓ‚ËÈ ÍÂ‰ËÚÌËÈ Î≥Ï≥Ú" << endl;
+		cout << "–í–≤–µ–¥—ñ—Ç—å –Ω–æ–≤–∏–π –∫—Ä–µ–¥–∏—Ç–Ω–∏–π –ª—ñ–º—ñ—Ç" << endl;
 		cin >> limit;
-		if (limit <= 0) { cout << "ÕÂ‚≥ÌÓ ‚‚Â‰ÂÌ≥ ‰‡Ì≥" << endl; credit_limit = 0; }
+		if (limit <= 0) { cout << "–ù–µ–≤—ñ—Ä–Ω–æ –≤–≤–µ–¥–µ–Ω—ñ –¥–∞–Ω—ñ" << endl; credit_limit = 0; }
 		else { credit_limit = limit; }
 		break;
 	default:
-		cout << "ÕÂÏ‡∫ Ú‡ÍÓ„Ó ÔÛÌÍÚÛ ÏÂÌ˛!" << endl;
+		cout << "–ù–µ–º–∞—î —Ç–∞–∫–æ–≥–æ –ø—É–Ω–∫—Ç—É –º–µ–Ω—é!" << endl;
 	}
 }
