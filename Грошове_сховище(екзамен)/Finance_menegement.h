@@ -6,20 +6,20 @@ class FinanceManagement
 	set<MoneyStorage*> storages;
 public:
 	FinanceManagement();
-	void AddStorage(MoneyStorage* ptr); //додати сховище
-	void DeleteStorage(long long number);  // видалити сховище
-	void Info(); //вивід даних всіх сховищ
-	void TopUpStorage();   //поповнити сховище
-	void AddSpendingToStorage(); // додати витрату до сховища
-	void Menu();    // меню
-	 //звіти
+	void AddStorage(MoneyStorage* ptr); //РґРѕРґР°С‚Рё СЃС…РѕРІРёС‰Рµ
+	void DeleteStorage(long long number);  // РІРёРґР°Р»РёС‚Рё СЃС…РѕРІРёС‰Рµ
+	void Info(); //РІРёРІС–Рґ РґР°РЅРёС… РІСЃС–С… СЃС…РѕРІРёС‰
+	void TopUpStorage();   //РїРѕРїРѕРІРЅРёС‚Рё СЃС…РѕРІРёС‰Рµ
+	void AddSpendingToStorage(); // РґРѕРґР°С‚Рё РІРёС‚СЂР°С‚Сѓ РґРѕ СЃС…РѕРІРёС‰Р°
+	void Menu();    // РјРµРЅСЋ
+	 //Р·РІС–С‚Рё
 	void DayReport();
 	void WeekReport();
 	void MonthReport();
-	//рейтинги
+	//СЂРµР№С‚РёРЅРіРё
 	void RatingMonth();
 	void RatingWeek();
-	//рейтинги категорій
+	//СЂРµР№С‚РёРЅРіРё РєР°С‚РµРіРѕСЂС–Р№
 	void RatingMonthCategory();
 	void RatingWeekCategory();
 };
